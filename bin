@@ -1,0 +1,15 @@
+import schedule
+import time
+
+def empty_recycle_bin():
+    import shutil
+    recycle_bin = "C:\\$Recycle.Bin"
+    shutil.rmtree(recycle_bin)
+    print("Recycle bin emptied")
+
+schedule.every().day.at("00:00").do(empty_recycle_bin)
+
+while True:
+    schedule.run_pending()
+    time.sleep(60) 
+    #This script will empty the recycle bin every day at 00:00.
